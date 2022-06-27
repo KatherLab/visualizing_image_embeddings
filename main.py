@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 __author__ = 'Didem Cifci'
-__copyright__ = '2022 Kather Lab at RWTH Aachen'
+__copyright__ = '2022 Kather Lab at EKFZ / TU Dresden'
 __license__ = 'MIT'
 __version__ = '0.1.0'
 
