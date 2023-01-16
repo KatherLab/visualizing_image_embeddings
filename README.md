@@ -22,13 +22,9 @@ data set of a collection of textures in histological images of human colorectal 
 
 ## Sample output plots 
 
-<p align="center">
-<img src="https://github.com/KatherLab/visualizing_image_embeddingstree/main/out/plots/plot_scatter_thumbnails.tiff" width="80%" height="80%">
-</p>
+![Thumbnail-plot](https://github.com/KatherLab/visualizing_image_embeddingstree/main/out/plots/plot_scatter_thumbnails.tiff)
 
-<p align="center">
-<img src="https://github.com/KatherLab/visualizing_image_embeddingstree/main/out/plots/plot_scatter_dots.png" width="80%" height="80%">
-</p>
+![Dot-plot](https://github.com/KatherLab/visualizing_image_embeddingstree/main/out/plots/plot_scatter_dots.png)
 
 ## License
 
