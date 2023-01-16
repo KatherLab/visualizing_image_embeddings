@@ -18,7 +18,7 @@ Tested on Python 3.8.10
 python main.py -p [path of the input spreadsheet]
 ```
 
-data set of a collection of textures in histological images of human colorectal cancer by Kather et al. 2016 (https://zenodo.org/record/53169#.Y8U85nbMJNY) used as sample input in this repository. Construction of the input spreadsheet is shown in "make_sample_spreadsheet.py" for the required format.
+The data set, collection of textures in histological images of human colorectal cancer, by Kather et al. 2016 (https://zenodo.org/record/53169#.Y8U85nbMJNY) used as sample input in this repository. Construction of the input spreadsheet is shown in "make_sample_spreadsheet.py" for the required format.
 
 ## Sample output plots 
 
