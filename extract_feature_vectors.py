@@ -51,7 +51,7 @@ class FeatureExtraction:
         model = model.cuda()
 
     def transform_image(self, image_path: str) -> torch.Tensor:
-        scaler = transforms.Scale((224, 224))
+        scaler = transforms.Resize((224, 224)) # Scale() deprecated
         normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406],
                                          std=[0.229, 0.224, 0.225])
         to_tensor = transforms.ToTensor()
@@ -98,17 +98,17 @@ class FeatureExtraction:
         #    self.model = load_learner(deep_med_model).model.to(device)
 
         def get_label(x):
-            i_image = df[df["file_names"] == x].index.values[0]
-            label = df["labels"][i_image]
+            i_image = df[df['path'] == x].index.values[0]
+            label = df['label'][i_image]
             if label.isnumeric():
-                return torch.tensor(float(df["labels"][i_image]))
+                return torch.tensor(float(df['label'][i_image]))
             else:
-                unique_labels = sorted(df["labels"].unique())
+                unique_labels = sorted(df['label'].unique())
                 label_dict = dict()
                 for i in range(len(unique_labels)):
                     label_dict[unique_labels[i]] = i
                 # TODO: log the label dictionary
-                # print(label_dict)
+                #print(label_dict)
                 return torch.tensor(float(label_dict[label]))
 
         Path(self.out_dir).mkdir(exist_ok=True)
@@ -123,7 +123,7 @@ class FeatureExtraction:
         labels = []
         image_names = []
 
-        for im_name in df["file_names"]:
+        for im_name in df['path']:
             image_path = im_name
             trans_im = self.transform_image(image_path)
             if self.is_selfSupervised == False:

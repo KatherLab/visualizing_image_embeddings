@@ -40,7 +40,7 @@ class DataClustering:
     def run_tSNE(self):
         self.load()
         print('Clustering with t-SNE is running...')
-        tsne = TSNE(n_components=2)
+        tsne = TSNE(n_components=2, random_state=0)
         X_2d = tsne.fit_transform(self.X)
         self.df['labels'] = self.y.T.reshape(-1)
         self.df['comp-1'] = X_2d[:, 0]
@@ -51,8 +51,8 @@ class DataClustering:
         plt.figure(figsize=(16, 10))
         n_classes = len(self.df['labels'].unique())
         sns.scatterplot(x='comp-1', y='comp-2', hue=self.df.labels.tolist(),
-                        palette=sns.color_palette("hls", n_classes),
-                        data=self.df).set(title="T-SNE projection")
+                        palette=sns.color_palette('hls', n_classes),
+                        data=self.df).set(title='T-SNE projection')
         # plt.show()
         self.plot_dir.mkdir(exist_ok=True)
         path_scatter_dots = self.plot_dir / 'plot_scatter_dots.png'
@@ -81,7 +81,7 @@ class DataClustering:
             idx = self.df[self.df['im_names'] == im].index.values[0]
             x = self.df['comp-1'][idx]
             y = self.df['comp-2'][idx]
-            axin = ax.inset_axes([x, y, 2, 2], transform=ax.transData)
+            axin = ax.inset_axes([x, y, 10, 10], transform=ax.transData)
             axin.imshow(arr_image, cmap='gray')
             axin.axis('off')
         # plt.show()
