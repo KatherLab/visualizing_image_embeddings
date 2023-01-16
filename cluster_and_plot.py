@@ -88,5 +88,5 @@ class DataClustering:
 
         # fig.set_size_inches(20, 20)
         self.plot_dir.mkdir(exist_ok=True)
-        path_out_imgs = self.plot_dir / 'plot_scatter_thumbnails.tiff'
-        fig.savefig(path_out_imgs, format='tiff', dpi=600)
+        path_out_imgs = self.plot_dir / 'plot_scatter_thumbnails.png'
+        fig.savefig(path_out_imgs, dpi=100) # format='tiff'
