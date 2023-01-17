@@ -4,7 +4,7 @@
 __author__ = 'Didem Cifci'
 __copyright__ = '2022 Kather Lab at EKFZ / TU Dresden'
 __license__ = 'MIT'
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 
 import argparse
 from cluster_and_plot import DataClustering
