@@ -9,7 +9,7 @@ __version__ = '0.1.1'
 import argparse
 from cluster_and_plot import DataClustering
 from extract_feature_vectors import FeatureExtraction
-
+#TODO: add parser for already extracted features
 parser = argparse.ArgumentParser(
     description='Visualize the t-SNE representation of images')
 parser.add_argument('-p', '--path_to_spreadsheet', type=str, metavar='', required=True,
