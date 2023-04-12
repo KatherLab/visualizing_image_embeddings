@@ -103,6 +103,7 @@ class FeatureExtraction:
             if label.isnumeric():
                 return torch.tensor(float(df['label'][i_image]))
             else:
+                # TODO: why do we need the unique labels here, and it is returning numeric values not the original labels
                 unique_labels = sorted(df['label'].unique())
                 label_dict = dict()
                 for i in range(len(unique_labels)):

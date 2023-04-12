@@ -46,32 +46,32 @@ def get_feature_label(patient_name, dict):
 
 
 
-def construct_dataframe():
+def construct_dataframe(colume = 2):
     X = np.zeros((0, 2048))
     y = np.zeros((0, 1))
 
     for file in file_list:
-        print(file)
+        #print(file)
         f = h5py.File(file, 'r')
-        print(list(f.keys()))
+        #print(list(f.keys()))
         patient_name = Path(file).stem.split('.')[-1]
-        print(patient_name)
-        label = get_feature_label(patient_name, construct_label_dict(5))
+        #print(patient_name)
+        label = get_feature_label(patient_name, construct_label_dict(colume))
         # generate a label array with the same length as the feature array
-        print(label)
+        #print(label)
 
         ds_features = f.get('feats')
-        print(ds_features.shape)
+        #print(ds_features.shape)
         label_array = np.full((ds_features.shape[0], 1), label)
-        print(label_array.shape)
+        #print(label_array.shape)
 
         X = np.vstack([X, ds_features])
         y = np.vstack([y, label_array])
         f.close()
 
-    print(X.shape)
+    #print(X.shape)
     print(y)
-    print(y.shape)
+    #print(y.shape)
     return X, y
 
 def construct_dataframe_perpatient_mean():
@@ -106,10 +106,11 @@ def construct_dataframe_perpatient_mean():
     print(y.shape)
     return X, y
 
-X, y = construct_dataframe()
+X, y = construct_dataframe(colume=2)
 #X, y = construct_dataframe_perpatient_mean()
 dc = DataClustering('out_dir', X, y)
 
-dc.run_tSNE()
+#dc.run_tSNE()
+dc.run_pca()
 dc.plot_scatter()
 #dc.plot_imgs_withinput()
